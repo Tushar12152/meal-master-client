@@ -15,22 +15,7 @@ const Register = () => {
     const {createUser,googlepopUp,logOut}=useAuth()
      const navigate= useNavigate()
 
-    const handleGooglePopup=()=>{
-        googlepopUp()
-        .then(res=>{
-            console.log(res.user);
-            if(res.user){
-                toast.success('You are Signed Up')
-                navigate('/')
-                
-                
-            }
-        })
-        .catch(err=>{
-            console.log(err);
-        })
-    }
-
+   
 
 
     const handleLogin=async(e)=>{
@@ -71,6 +56,25 @@ const Register = () => {
           
     }
 
+
+
+    const handleGooglePopup=()=>{
+      googlepopUp()
+      .then(res=>{
+          console.log(res.user);
+
+         
+          if(res.user){
+
+              toast.success('You are Signed Up')
+              navigate('/')
+             
+          }
+      })
+      .catch(err=>{
+          toast.error(err.message);
+      })
+  }
 
 
 

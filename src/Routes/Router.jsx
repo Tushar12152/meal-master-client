@@ -3,6 +3,8 @@ import Routs from "../Layout/Routs";
 import Login from "../Components/login";
 import Register from "../Components/Register";
 import Home from "../Pages/Home";
+import DashBoard from "../Layout/DashBoard";
+import AddMeal from "../DashBoard/AddMeal";
 
 
 const Router = createBrowserRouter([
@@ -24,6 +26,17 @@ const Router = createBrowserRouter([
           path:'/register',
           element:<Register></Register>
       },
+
+      {
+        path:'/dashboard',
+        element:<DashBoard></DashBoard>,
+        children:[
+          {
+            path:'/dashboard/addmeal',
+            element:<AddMeal></AddMeal>
+          }
+        ]
+      }
 ])
 
 export default Router;

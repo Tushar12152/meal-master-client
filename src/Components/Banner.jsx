@@ -6,7 +6,7 @@ const Banner = () => {
          <Container>
 
 <div
-            className="relative min-h-screen rounded-lg mt-5"
+            className="relative min-h-screen rounded-lg mt-5 z-0"
             style={{ backgroundImage: `url('https://i.ibb.co/F6k84gc/Screenshot-1.png')`  , backgroundRepeat:'no-repeat',backgroundSize:'cover'}} // Replace 'path_to_your_image.jpg' with the actual path to your image
         >
             <div className="absolute inset-0 bg-black opacity-50"></div>
