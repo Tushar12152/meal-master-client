@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import Container from "../Layout/Container";
 import MenuDropdown from "./MenuDropdown";
+import { IoIosNotifications } from "react-icons/io";
+
 
 const Nav = () => {
 
@@ -10,7 +12,10 @@ const Nav = () => {
 
         <NavLink to="/meals" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md text-white" : ""}>Meals</NavLink>
 
-        <NavLink to="/upcoming-meals" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md text-white    " : ""}>Upcoming Meals</NavLink>
+      <div className="flex items-center">
+      <NavLink to="/upcoming-meals" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md text-white    " : ""}> Upcoming Meals  </NavLink>
+        <IoIosNotifications className="text-xl " />
+      </div>
 
         <NavLink to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md  text-white" : ""}>Join Us</NavLink>
   </div>

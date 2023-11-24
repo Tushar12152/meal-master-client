@@ -4,10 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { imageUpload } from "../Api/UploadImage";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Register = () => {
 
     const [show,setShow]=useState(true)
+    const axiosSecure=useAxiosSecure() 
+
 
     const {createUser,googlepopUp,logOut}=useAuth()
      const navigate= useNavigate()
@@ -39,10 +42,19 @@ const Register = () => {
            const photo=form.photo.files[0]
            const img=await imageUpload(photo)
            const image=img?.data?.display_url
-            
+           
+           const usersInfo={
+               image,
+               email,
+               name,
+               Role:'guest',
+               Badge:'bronze'
+           }
+
            const result = await createUser(email, password)
             if(result.user){
                
+                axiosSecure.post('/users',usersInfo)
 
                 toast.success('Your Registration Compleate')
                 logOut()
@@ -56,7 +68,7 @@ const Register = () => {
 
            
 
-           console.log(email,password,name,image);
+          
     }
 
 
