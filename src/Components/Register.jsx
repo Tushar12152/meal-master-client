@@ -1,11 +1,33 @@
 import { useState } from "react";
-import { FaEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaEye, FaGoogle, FaRegEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import { imageUpload } from "../Api/UploadImage";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
     const [show,setShow]=useState(true)
+
+    const {createUser,googlepopUp,logOut}=useAuth()
+     const navigate= useNavigate()
+
+    const handleGooglePopup=()=>{
+        googlepopUp()
+        .then(res=>{
+            console.log(res.user);
+            if(res.user){
+                toast.success('You are Signed Up')
+                navigate('/')
+                
+                
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+
 
 
     const handleLogin=async(e)=>{
@@ -17,8 +39,17 @@ const Register = () => {
            const photo=form.photo.files[0]
            const img=await imageUpload(photo)
            const image=img?.data?.display_url
+            
+           const result = await createUser(email, password)
+            if(result.user){
+               
 
-           
+                toast.success('Your Registration Compleate')
+                logOut()
+                .then(()=>{
+                    navigate('/login')})
+            }
+
 
            
 
@@ -97,12 +128,21 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-white bg-[#f76042]">Register</button>
+      
+          <input className="btn text-white bg-[#f76042]" type="submit" value="Register" />
 
-          <p className='text-center py-3'>Have An Account? Please <Link to='/login'  className='text-[#f76042]'>Log In</Link></p>
+          <p className='text-center pt-3'>Have An Account? Please <Link to='/login'  className='text-[#f76042]'>Log In</Link></p>
 
+
+        
         </div>
       </form>
+
+      <div>
+              <p className="text-center font-semibold text-2xl w-[60%] mx-auto border-b-4 pb-2">Sign Up  With</p>
+
+                <button onClick={handleGooglePopup} className="ml-44 py-4"><FaGoogle></FaGoogle></button>
+         </div>
     </div>
   </div>
 </div>

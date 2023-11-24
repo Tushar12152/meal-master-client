@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Container from "../Layout/Container";
+import MenuDropdown from "./MenuDropdown";
 
 const Nav = () => {
 
@@ -35,7 +36,7 @@ const Nav = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <MenuDropdown></MenuDropdown>
   </div>
 </div>
              </Container>

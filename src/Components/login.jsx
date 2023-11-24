@@ -1,16 +1,31 @@
 import  { useState } from 'react';
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const [show,setShow]=useState(true)
-
+    const {SignIn}=useAuth()
+    const navigate=useNavigate()
 
     const handleLogin=(e)=>{
            e.preventDefault()
            const form=e.target;
            const email=form.email.value;
            const password=form.password.value;
+
+           SignIn(email,password)
+           .then(res=>{
+              if(res?.user){
+                 toast.success('Logged In')
+                 navigate('/')
+              }
+           })
+           .catch(err=>{
+                toast.error(err.message)
+           })
            console.log(email,password);
     }
 
@@ -52,7 +67,7 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-white bg-[#f76042]">Login</button>
+          <button className="btn text-white bg-[#f76042]">Log In</button>
 
           <p className='text-center py-3'>New Here? Please <Link to='/register'  className='text-[#f76042]'>Register</Link></p>
 
