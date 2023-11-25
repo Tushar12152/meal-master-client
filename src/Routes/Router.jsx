@@ -6,6 +6,7 @@ import Home from "../Pages/Home";
 import DashBoard from "../Layout/DashBoard";
 import AddMeal from "../DashBoard/AddMeal";
 import MealDetails from "../Components/MealDetails";
+import Payment from "../Pages/payment/Payment";
 import Meals from "../Pages/Meals";
 
 
@@ -27,6 +28,11 @@ const Router = createBrowserRouter([
             path:"/meals",
             element:<Meals></Meals>
 
+          },
+          {
+             path:'/payment/:packageName',
+             element:<Payment></Payment>,
+             loader:({params})=>fetch(`http://localhost:5000/packages/${params.packageName}`)
           }
         ]
       },

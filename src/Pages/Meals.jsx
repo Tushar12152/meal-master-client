@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
-import MealsCard from '../Components/MealsCard';
+
 import Container from '../Layout/Container';
+import MealsCards from '../Components/MealsCards';
 
 const Meals = () => {
   const axiosSecure = useAxiosSecure();
@@ -118,7 +119,7 @@ const Meals = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
           {displayMeals.map((meal) => (
-            <MealsCard key={meal._id} meal={meal} />
+            <MealsCards key={meal._id} meal={meal} />
           ))}
         </div>
       </div>

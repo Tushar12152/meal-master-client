@@ -1,5 +1,6 @@
 import Banner from "../Components/Banner";
 import MealsByCategory from "../Components/MealsByCategory";
+import MemberShip from "../Components/MemberShip";
 
 const Home = () => {
     return (
@@ -7,6 +8,7 @@ const Home = () => {
               <Banner></Banner>
 
               <MealsByCategory></MealsByCategory>
+              <MemberShip></MemberShip>
         </div>
     );
 };
