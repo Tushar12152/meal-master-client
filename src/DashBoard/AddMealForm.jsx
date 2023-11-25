@@ -30,7 +30,7 @@ const AddMealForm = () => {
 
 
 
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('breakfast');
   
     const handleSelectChange = (event) => {
       setCategory(event.target.value); 
@@ -43,8 +43,8 @@ const AddMealForm = () => {
         const imageFile = data.image[0]; 
   
         const imageUrl = await imageUpload(imageFile);
-        // console.log('Image URL--------->', imageUrl.data.url_viewer);
-        const image=imageUrl?.data?.url_viewer
+        console.log('Image URL--------->', imageUrl.display_url);
+        const image=imageUrl?.data?.display_url
   
        
         const meal = { ...data, Category: category, imageUrl: image };

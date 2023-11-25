@@ -9,8 +9,8 @@ const MealsCard = ({meal}) => {
     console.log('imageUrl---------->',imageUrl);
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-           <img src={imageUrl} alt="" />
-        <div className="card-body">
+         <img className="w-[90%] mx-auto p-2 rounded-lg" src={imageUrl} alt="" />
+        <div className="card-body w-[90%] mx-auto">
           <h2 className="card-title">{Title}</h2>
           <p>Price:$ {description}</p>
           <p>Price:$ {price}</p>
@@ -21,7 +21,7 @@ const MealsCard = ({meal}) => {
          fullSymbol={<FaStar />}
             />
           <div className="card-actions justify-end">
-           <Link to={`detail/${_id}`}>
+           <Link to={`/detail/${_id}`}>
            <button className="btn bg-[#f76042] text-white">View Detail</button>
            </Link>
           </div>

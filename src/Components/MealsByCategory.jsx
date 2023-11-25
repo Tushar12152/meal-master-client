@@ -20,8 +20,12 @@ const MealsByCategory = () => {
    
  })
 
-console.log(meals);
+// console.log(meals);
+const breakfast=meals.filter(meal=>meal.Category==='breakfast')
+const lunch=meals.filter(meal=>meal.Category==='lunch')
+const dinner=meals.filter(meal=>meal.Category==='dinner')
 
+console.log(breakfast,lunch,dinner);
 
     return (
      <Container>
@@ -38,20 +42,34 @@ console.log(meals);
     </TabList>
 
     <TabPanel>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>
       {
          meals.map(meal=><MealsCard key={meal._id} meal={meal}></MealsCard>)
       }
+      </div>
     </TabPanel>
     <TabPanel>
-      <h2>break fast</h2>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>
+      {
+         breakfast.map(meal=><MealsCard key={meal._id} meal={meal}></MealsCard>)
+      }
+      </div>
     </TabPanel>
 
     <TabPanel>
-      <h2>lunch</h2>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>
+      {
+         lunch.map(meal=><MealsCard key={meal._id} meal={meal}></MealsCard>)
+      }
+      </div>
     </TabPanel>
 
     <TabPanel>
-      <h2>dinner</h2>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>
+      {
+         dinner.map(meal=><MealsCard key={meal._id} meal={meal}></MealsCard>)
+      }
+      </div>
     </TabPanel>
   </Tabs>
         </div>

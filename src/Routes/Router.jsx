@@ -5,6 +5,8 @@ import Register from "../Components/Register";
 import Home from "../Pages/Home";
 import DashBoard from "../Layout/DashBoard";
 import AddMeal from "../DashBoard/AddMeal";
+import MealDetails from "../Components/MealDetails";
+import Meals from "../Pages/Meals";
 
 
 const Router = createBrowserRouter([
@@ -15,6 +17,16 @@ const Router = createBrowserRouter([
           {
              path:'/',
              element:<Home></Home>
+          },
+          {
+            path:`/detail/:id`,
+            element:<MealDetails></MealDetails>,
+            loader:({params})=>fetch(`http://localhost:5000/meals/${params.id}`)
+          },
+          {
+            path:"/meals",
+            element:<Meals></Meals>
+
           }
         ]
       },
