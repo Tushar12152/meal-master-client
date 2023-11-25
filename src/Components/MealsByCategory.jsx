@@ -25,7 +25,7 @@ const breakfast=meals.filter(meal=>meal.Category==='breakfast')
 const lunch=meals.filter(meal=>meal.Category==='lunch')
 const dinner=meals.filter(meal=>meal.Category==='dinner')
 
-console.log(breakfast,lunch,dinner);
+// console.log(breakfast,lunch,dinner);
 
     return (
      <Container>
