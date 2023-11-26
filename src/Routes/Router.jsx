@@ -11,6 +11,7 @@ import Meals from "../Pages/Meals";
 import PrivateRoute from "./PrivateRoute";
 import RequestedMeal from "../DashBoard/User/requestedMeal";
 import UserProfile from "../DashBoard/User/UserProfile";
+import MyReview from "../DashBoard/User/MyReview";
 
 
 const Router = createBrowserRouter([
@@ -70,6 +71,13 @@ const Router = createBrowserRouter([
                         <UserProfile></UserProfile>
                      </PrivateRoute>
           },
+
+          {
+            path:'/dashboard/review',
+            element:<PrivateRoute>
+                  <MyReview/>
+                   </PrivateRoute>
+          }
         ]
       }
 ])

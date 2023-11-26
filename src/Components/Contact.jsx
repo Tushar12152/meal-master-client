@@ -30,14 +30,14 @@ const Contact = () => {
                 <label className="label">
                   <span className="label-text">First Name</span>
                 </label>
-                <input  type="text" placeholder="First Name" className="input input-bordered input-secondary w-full" required />
+                <input  type="text" placeholder="First Name" className="input input-bordered border-[#f76042] w-full" required />
               </div>
 
               <div className="form-control w-[50%]">
                 <label className="label">
                   <span className="label-text">Last Name</span>
                 </label>
-                <input  type="text" placeholder="Last Name" className="input input-bordered input-secondary w-full" required />
+                <input  type="text" placeholder="Last Name" className="input input-bordered border-[#f76042] w-full" required />
               </div>
 
 
@@ -53,19 +53,19 @@ const Contact = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input name="description" type="text" placeholder="Email" className="input input-bordered input-secondary w-full " required />
+                <input name="description" type="text" placeholder="Email" className="input input-bordered border-[#f76042] w-full " required />
               </div>
 
               <div className="form-control w-[50%]">
                 <label className="label">
                   <span className="label-text">Phone</span>
                 </label>
-                <input name="description" type="text" placeholder="Phone" className="input input-bordered input-secondary w-full " required />
+                <input name="description" type="text" placeholder="Phone" className="input input-bordered border-[#f76042] w-full " required />
               </div>
 
           </div>
 
-         <textarea placeholder="Write Your Text.................." className="border-2 input-secondary w-full mt-6" name="" id="" cols="30" rows="10"></textarea>
+         <textarea placeholder="Write Your Text.................." className="border-2 border-[#f76042] w-full mt-6" name="" id="" cols="30" rows="10"></textarea>
          
 
              <input className="btn w-full mt-5 bg-[#f76042] text-white" type="submit" value="Send" />
