@@ -1,4 +1,4 @@
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHandsHelping, FaHome, FaList, FaSearch,  FaUtensils } from "react-icons/fa";
+import { FaBook, FaEnvelope, FaHandsHelping, FaHome,  FaSearch,  FaUtensils } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { MdManageAccounts, MdPreview, MdUpcoming } from "react-icons/md";
 
@@ -6,6 +6,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import User from "../DashBoard/User/User";
 
 
 
@@ -79,30 +80,12 @@ const Admin=data?.Role==='admin'
                             </li>
                         </>
                             :
-                            <>
-                                <li>
-                                    <NavLink to="/dashboard/userHome">
-                                        <FaHome></FaHome>
-                                        User Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/history">
-                                        <FaCalendar></FaCalendar>
-                                        Not History</NavLink>
-                                </li>
-                                
-                                <li>
-                                    <NavLink to="/dashboard/review">
-                                        <FaAd></FaAd>
-                                        Add a Review</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/paymentHistory">
-                                        <FaList></FaList>
-                                        Real Payment History</NavLink>
-                                </li>
-                            </>
+                           <User></User>
                     }
+
+
+
+
                     {/* shared nav links */}
                     <div className="divider"></div>
                     <li>

@@ -5,20 +5,49 @@ import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { AiFillEye, AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
+import useAuth from '../Hooks/useAuth';
 
 
 const MealDetailCard = ({meal}) => {
 
     const [like,setLike]=useState(false)
-
+    const axiosSecure=useAxiosSecure()
+    const {user}=useAuth()
+    const userMail=user?.email
     // console.log(meal);
 
     // const {Category,Title,_id, admin_email,admin_name,date,description,imageUrl,ingredients,likes,price,rating,review}=meal
 
 
-    
+
 
     const {Title,admin_name,date,description,imageUrl,ingredients,likes,rating,review}=meal
+
+
+
+    const handleAddMeal=async()=>{
+         const meal={
+          title:Title,
+          email:userMail,
+          likes:likes,
+          review:review,
+          status:'pending'
+         }
+
+         const res= await axiosSecure.post('/requests',meal)
+          if(res?.data?.insertedId){
+             toast.success('Your Request is sent')
+          }
+
+
+
+
+    }
+
+
 
     return (
          <Container>
@@ -60,7 +89,9 @@ const MealDetailCard = ({meal}) => {
       </div>
      
      <div className=' mt-10'>
-     <button className="btn bg-[#f76042] text-white">Request Meal</button>
+         <Link to='/dashboard/requestedMeal'>
+         <button onClick={handleAddMeal} className="btn bg-[#f76042] text-white">Request Meal</button>
+         </Link>
      </div>
 
      

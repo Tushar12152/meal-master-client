@@ -8,6 +8,8 @@ import AddMeal from "../DashBoard/AddMeal";
 import MealDetails from "../Components/MealDetails";
 import Payment from "../Pages/payment/Payment";
 import Meals from "../Pages/Meals";
+import PrivateRoute from "./PrivateRoute";
+import RequestedMeal from "../DashBoard/User/requestedMeal";
 
 
 const Router = createBrowserRouter([
@@ -52,6 +54,12 @@ const Router = createBrowserRouter([
           {
             path:'/dashboard/addmeal',
             element:<AddMeal></AddMeal>
+          },
+          {
+             path:'/dashboard/requestedMeal',
+             element:<PrivateRoute>
+                  <RequestedMeal></RequestedMeal>
+             </PrivateRoute>
           }
         ]
       }

@@ -14,7 +14,7 @@ const MenuDropdown = () => {
    const userEmail=user?.email
     const axiosSecure=useAxiosSecure()
 
-   const { data } = useQuery({
+   const { data=[] } = useQuery({
     queryKey: ['users'],
     queryFn: async () =>{
         const res=await axiosSecure.get(`/users/${userEmail}`)
