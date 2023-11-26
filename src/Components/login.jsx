@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import { FaEye, FaGoogle, FaRegEyeSlash } from "react-icons/fa";
+import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
     const [show,setShow]=useState(true)
-    const {SignIn,googlepopUp}=useAuth()
+    const {SignIn}=useAuth()
     const navigate=useNavigate()
     const location=useLocation()
 
@@ -16,21 +16,6 @@ const Login = () => {
     
    
 
-   const handleGooglePopup=()=>{
-       googlepopUp()
-       .then(res=>{
-           console.log(res.user);
-           if(res.user){
-               toast.success('You are Signed Up')
-               navigate(location?.state ? location.state:"/")
-               
-               
-           }
-       })
-       .catch(err=>{
-           console.log(err);
-       })
-   }
 
     const handleLogin=(e)=>{
            e.preventDefault()
@@ -95,11 +80,7 @@ const Login = () => {
 
         </div>
       </form>
-      <div>
-              <p className="text-center font-semibold text-2xl w-[60%] mx-auto border-b-4 pb-2">Sign Up  With</p>
-
-                <button onClick={handleGooglePopup} className="ml-36 py-4"><FaGoogle></FaGoogle></button>
-         </div>
+     
 
     </div>
   </div>

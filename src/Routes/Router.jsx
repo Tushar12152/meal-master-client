@@ -10,6 +10,7 @@ import Payment from "../Pages/payment/Payment";
 import Meals from "../Pages/Meals";
 import PrivateRoute from "./PrivateRoute";
 import RequestedMeal from "../DashBoard/User/requestedMeal";
+import UserProfile from "../DashBoard/User/UserProfile";
 
 
 const Router = createBrowserRouter([
@@ -49,7 +50,9 @@ const Router = createBrowserRouter([
 
       {
         path:'/dashboard',
-        element:<DashBoard></DashBoard>,
+        element:<PrivateRoute>
+          <DashBoard></DashBoard>
+           </PrivateRoute>,
         children:[
           {
             path:'/dashboard/addmeal',
@@ -60,7 +63,13 @@ const Router = createBrowserRouter([
              element:<PrivateRoute>
                   <RequestedMeal></RequestedMeal>
              </PrivateRoute>
-          }
+          },
+          {
+             path:'/dashboard/userProfile',
+             element:<PrivateRoute>
+                        <UserProfile></UserProfile>
+                     </PrivateRoute>
+          },
         ]
       }
 ])
