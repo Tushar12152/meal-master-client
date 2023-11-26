@@ -11,11 +11,12 @@ const MealDetailCard = ({meal}) => {
 
     const [like,setLike]=useState(false)
 
-
-
     // console.log(meal);
 
     // const {Category,Title,_id, admin_email,admin_name,date,description,imageUrl,ingredients,likes,price,rating,review}=meal
+
+
+    
 
     const {Title,admin_name,date,description,imageUrl,ingredients,likes,rating,review}=meal
 

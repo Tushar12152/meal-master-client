@@ -16,6 +16,8 @@ const Payment = () => {
             <Container>
                  <div className="mt-5">
                     <Title heading={'Payment'}></Title>
+
+                    <h1 className="text-xl font-semibold py-10">Total : ${data?.price}</h1>
                 <div  className=" mt-10">
                   <Elements stripe={stripePromise}>
                        <CheakOutForm data={data}></CheakOutForm>

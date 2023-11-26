@@ -4,9 +4,13 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import { PropTypes } from 'prop-types';
 import useAuth from "../../Hooks/useAuth";
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 const CheakOutForm = ({data}) => {
-    const price=data.price
+    const price=data?.price;
+    const navigate=useNavigate()
+    const packageName=data?.packageName;
     const [clientSecret,SetClientSecret]=useState('')
     const [transactionId,SetTransactionId]=useState('')
     const {user}=useAuth()
@@ -65,6 +69,22 @@ const CheakOutForm = ({data}) => {
 
              if(paymentIntent?.status=== "succeeded"){
                 SetTransactionId(paymentIntent?.id)
+
+                const payment={
+                   date:new Date(),
+                   email:user?.email,
+                   price:price,
+                   transactionId:paymentIntent?.id,
+                   packageName:packageName,
+                   status:'pending',
+
+                }
+
+                const res=await axiosSecure.post('/payments',payment)
+                  if(res.data.insertedId){
+                       swal('success', 'Your payment is Success','success')
+                       navigate(-1)
+                  }
              }
         }
 

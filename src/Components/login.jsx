@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import { FaEye, FaGoogle, FaRegEyeSlash } from "react-icons/fa";
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
 
@@ -9,6 +9,7 @@ const Login = () => {
     const [show,setShow]=useState(true)
     const {SignIn,googlepopUp}=useAuth()
     const navigate=useNavigate()
+    const location=useLocation()
 
 
 
@@ -21,7 +22,7 @@ const Login = () => {
            console.log(res.user);
            if(res.user){
                toast.success('You are Signed Up')
-               navigate('/')
+               navigate(location?.state ? location.state:"/")
                
                
            }
@@ -41,7 +42,7 @@ const Login = () => {
            .then(res=>{
               if(res?.user){
                  toast.success('Logged In')
-                 navigate('/')
+                 navigate(location?.state ? location.state:"/")
               }
            })
            .catch(err=>{
