@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import RequestedMeal from "../DashBoard/User/requestedMeal";
 import UserProfile from "../DashBoard/User/UserProfile";
 import MyReview from "../DashBoard/User/MyReview";
+import UpdateReview from "../DashBoard/User/UpdateReview";
 
 
 const Router = createBrowserRouter([
@@ -77,6 +78,11 @@ const Router = createBrowserRouter([
             element:<PrivateRoute>
                   <MyReview/>
                    </PrivateRoute>
+          },
+          {
+            path:'/dashboard/update/:id',
+            element:<UpdateReview></UpdateReview>,
+            loader:({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
           }
         ]
       }

@@ -84,6 +84,11 @@ const MealDetailCard = ({ meal }) => {
         }
 
         axiosSecure.post('/reviews',reviewInfo)
+        .then(res=>{
+             if(res.data.insertedId){
+                toast.success('Your Review is added')
+             }
+        })
 
   //  console.log(reviewInfo);
 
@@ -123,7 +128,7 @@ const MealDetailCard = ({ meal }) => {
                                 <span>{reAction}</span>
                             </div>
                             <form onSubmit={handleReview} className='flex gap-2 items-center'>
-                                <input className='input border-2 border-[#f76042] text-black' type="text" name="review" />
+                                <input className='input border-2 border-[#f76042] text-black' type="text" name="review"  required/>
                                 <input className='btn bg-[#f76042]  text-white ' type="submit" value="Review" />
                             </form>
                         </div>

@@ -118,7 +118,9 @@ const MyReview = () => {
         </td>
         <td>{item?.review}</td>
         <th>
+         <Link to={`/dashboard/update/${item?._id}`}>
           <button className="btn bg-[#f76042] text-white"><FaEdit></FaEdit></button>
+         </Link>
         </th>
 
         <th>
