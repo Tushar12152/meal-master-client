@@ -28,7 +28,7 @@ const MyReview = () => {
     const data=detail.filter    (item=>item.email===user?.email)
 
 
-    console.log(data);
+    // console.log(data);
 
 
     const handleDelete=id=>{
