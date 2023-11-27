@@ -8,7 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 const RequestedMeal = () => {
     const axiosSecure=useAxiosSecure()
     const {user}=useAuth()
-    const email=user.email;
+    const email=user?.email;
     const { data:meal=[],refetch } = useQuery({
      queryKey: ['request'],
      queryFn: async () =>{
