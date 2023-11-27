@@ -19,7 +19,7 @@ const handleUpdateReview=(e)=>{
 
      axiosSecure.patch(`/reviews/${data?._id}`,review)
         .then(res=>{
-             if(res.data.modifiedCount){
+             if(res.data.modifiedCount>0){
                 toast.success('Your Review is updated success')
                 navigate(-1)
              }

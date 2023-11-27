@@ -1,15 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import Title from "../Shared/Title";
+import { useEffect, useState } from "react";
+import useAuth from "../Hooks/useAuth";
 
 const ManageUsers = () => {
-
     
+    const [toggle,setToggle]=useState(true)
+    const [role,setRole]=useState('')
     const axiosSecure=useAxiosSecure()
+    const {user}=useAuth()
+    
+useEffect(()=>{
+    toggle?setRole('admin'):setRole('guest')
+},[toggle])
 
+    // console.log(toggle);
    
 
-    const { data:users = [],refetch } = useQuery({
+    const { data:withLoggedusers = [],refetch } = useQuery({
         queryKey: ['user'], 
         queryFn: async () => {
             const res = await axiosSecure.get(`/users`);
@@ -18,7 +27,29 @@ const ManageUsers = () => {
     });
 
 
-console.log(users);
+    //filter a user which users is logged in he cannot change her own role.
+    //An Admin can not her role to guest.he can give role another users
+    const users=withLoggedusers.filter(users=>users?.email!==user?.email)
+
+// console.log(users);
+
+
+const handleRole=(id)=>{
+    console.log(id);
+    const Role={
+         Role:role
+    }
+     axiosSecure.patch(`/users/admin/${id}`,Role)
+     .then(res=>{
+         if(res.data.modifiedCount>0){
+            refetch()
+         }
+     })
+
+
+}
+
+
 
 
     return (
@@ -56,9 +87,11 @@ console.log(users);
         <td>
          {user?.email}
         </td>
-        <button className="btn  bg-[#f76042]  text-white">{user?.Role}</button>
+       <div onClick={()=>setToggle(!toggle)}>
+       <button onClick={()=>handleRole(user?._id)} className="btn  bg-[#f76042]  text-white">{user?.Role==='admin'?'Admin':'Guest'}</button>
+       </div>
         <th>
-          <button className="btn btn-ghost btn-xs">{user?.Badge}</button>
+          <p className="btn btn-ghost btn-xs">{user?.Badge}</p>
         </th>
       </tr>)}
       
