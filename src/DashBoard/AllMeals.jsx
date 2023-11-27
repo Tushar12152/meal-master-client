@@ -135,9 +135,11 @@ const AllMeals = () => {
                   </th>
                   <td>{meal?.admin_email}</td>
                   <td>
-                    <button className="btn bg-[#f76042] text-white">
+                   <Link to={`/dashboard/updateMeal/${meal?._id}`}>
+                   <button className="btn bg-[#f76042] text-white">
                       <FaEdit />
                     </button>
+                   </Link>
                   </td>
                   <td>
                     <button onClick={()=>handleDelete(meal?._id)} className="btn bg-[#f76042] text-white">

@@ -43,7 +43,7 @@ const AddMealForm = () => {
         const imageFile = data.image[0]; 
   
         const imageUrl = await imageUpload(imageFile);
-        console.log('Image URL--------->', imageUrl.display_url);
+        // console.log('Image URL--------->', imageUrl.display_url);
         const image=imageUrl?.data?.display_url
   
        

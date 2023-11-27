@@ -16,6 +16,7 @@ import UpdateReview from "../DashBoard/User/UpdateReview";
 import AdminRouts from "./AdminRouts";
 import ManageUsers from "../DashBoard/ManageUsers";
 import AllMeals from "../DashBoard/AllMeals";
+import UpdateMeals from "../DashBoard/UpdateMeals";
 
 
 const Router = createBrowserRouter([
@@ -41,7 +42,8 @@ const Router = createBrowserRouter([
              path:'/payment/:packageName',
              element:<Payment></Payment>,
              loader:({params})=>fetch(`http://localhost:5000/packages/${params.packageName}`)
-          }
+          },
+          
         ]
       },
       {
@@ -99,6 +101,11 @@ const Router = createBrowserRouter([
             path:'/dashboard/allmeal',
             element:<AdminRouts><AllMeals></AllMeals></AdminRouts>,
             loader:()=>fetch('http://localhost:5000/reviews')
+          },
+          {
+            path:'/dashboard/updateMeal/:id',
+            element:<UpdateMeals></UpdateMeals>,
+            loader:({params})=>fetch(`http://localhost:5000/meals/${params.id}`)
           }
         ]
       }
