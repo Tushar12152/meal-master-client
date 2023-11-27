@@ -15,6 +15,7 @@ import MyReview from "../DashBoard/User/MyReview";
 import UpdateReview from "../DashBoard/User/UpdateReview";
 import AdminRouts from "./AdminRouts";
 import ManageUsers from "../DashBoard/ManageUsers";
+import AllMeals from "../DashBoard/AllMeals";
 
 
 const Router = createBrowserRouter([
@@ -93,6 +94,11 @@ const Router = createBrowserRouter([
             element:<AdminRouts>
               <ManageUsers></ManageUsers>
               </AdminRouts>
+          },
+          {
+            path:'/dashboard/allmeal',
+            element:<AdminRouts><AllMeals></AllMeals></AdminRouts>,
+            loader:()=>fetch('http://localhost:5000/reviews')
           }
         ]
       }
