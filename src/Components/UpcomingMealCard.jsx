@@ -10,7 +10,7 @@ const UpcomingMealCard = ({ meal, liked }) => {
   const [disable, setDisable] = useState(false);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-
+ 
   useEffect(() => {
     const itemsLike = liked.filter(item => item.title === meal.Title && item.email === user?.email);
     setReAction(itemsLike.length);
@@ -24,8 +24,11 @@ const UpcomingMealCard = ({ meal, liked }) => {
 
     const likeInfo = {
       title: title,
-      email: user?.email
+      email: user?.email,
+      like:reAction+1
     };
+
+console.log(likeInfo);
 
     axiosSecure.post('/upcoming-likes', likeInfo).then(res => {
       if (res.data.insertedId) {

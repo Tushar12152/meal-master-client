@@ -21,6 +21,7 @@ import AllReview from "../DashBoard/User/AllReview";
 import ServeMeal from "../DashBoard/ServeMeal";
 import DashBoardHome from "../DashBoard/DashBoardHome";
 import UpComingMeals from "../Pages/UpComingMeals";
+import UpcomingMealAdmin from "../DashBoard/User/UpcomingMealAdmin";
 
 
 const Router = createBrowserRouter([
@@ -134,6 +135,13 @@ const Router = createBrowserRouter([
              element:<AdminRouts>
                         <ServeMeal></ServeMeal>
                     </AdminRouts>
+          },
+          {
+            path:'/dashboard/upcomingmeal',
+            element:<AdminRouts>
+                 <UpcomingMealAdmin></UpcomingMealAdmin>
+            </AdminRouts>,
+            loader:()=>fetch('http://localhost:5000/upcoming-likes')
           }
         ]
       }
