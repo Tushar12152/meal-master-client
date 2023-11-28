@@ -32,7 +32,7 @@ const MemberShip = () => {
          
           {
             data.map(item=> <Link  key={item?._id} to={`/payment/${item?.packageName}`}>
-              <div className="card card-compact w-96 bg-base-100 shadow-xl">
+              <div className="card card-compact  lg:w-96 bg-base-100 shadow-xl">
             <figure><img className="w-[50%] mx-auto h-[200px] " src={item?.image} alt="" /></figure>
             <div className="card-body">
               <h2 className="card-title">{item?.packageName}</h2>

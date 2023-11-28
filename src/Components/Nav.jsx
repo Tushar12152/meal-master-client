@@ -23,7 +23,7 @@ const Nav = () => {
 
 
 
-  const nav=<div className="flex gap-6 items-center">
+  const nav=<div className="flex flex-col lg:flex-row gap-6 lg:items-center">
 
         <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md text-white " : ""}>Home</NavLink>
 

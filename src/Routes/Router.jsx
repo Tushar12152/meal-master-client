@@ -23,12 +23,14 @@ import DashBoardHome from "../DashBoard/DashBoardHome";
 import UpComingMeals from "../Pages/UpComingMeals";
 import UpcomingMealAdmin from "../DashBoard/User/UpcomingMealAdmin";
 import AdmineProfile from "../DashBoard/AdmineProfile";
+import ErrorPage from "../Shared/ErrorPage";
 
 
 const Router = createBrowserRouter([
       {
         path:'/',
         element:<Routs></Routs>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
           {
              path:'/',

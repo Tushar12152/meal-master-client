@@ -53,55 +53,49 @@ const handleRole=(id)=>{
 
 
     return (
-        <div>
-              <Title heading={'Manage Users'}></Title>
+      <div>
+      <Title heading={'Manage Users'}></Title>
 
-              <div className="overflow-x-auto">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr>
-        <th>
-         #
-        </th>
-        <th>User Name</th>
-        <th>Users Email</th>
-        <th>Make Admin</th>
-        <th> Subscription Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      {users.map((user,i)=> <tr key={user._id}>
-        <th>
-         {i+1}
-        </th>
-        <td>
-          <div className="flex items-center gap-3">
-           
-            <div>
-              <div className="font-bold">{user?.name}</div>
-           
-            </div>
-          </div>
-        </td>
-        <td>
-         {user?.email}
-        </td>
-       <div onClick={()=>setToggle(!toggle)}>
-       <button onClick={()=>handleRole(user?._id)} className="btn  bg-[#f76042]  text-white">{user?.Role==='admin'?'Admin':'Guest'}</button>
-       </div>
-        <th>
-          <p className="btn btn-ghost btn-xs">{user?.Badge}</p>
-        </th>
-      </tr>)}
-      
-      </tbody>
-    
-  </table>
-</div>
-
-              
-        </div>
+      <div className="overflow-x-auto">
+          <table className="table">
+              {/* head */}
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>User Name</th>
+                      <th>Users Email</th>
+                      <th>Make Admin</th>
+                      <th>Subscription Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {users.map((user, i) => (
+                      <tr key={user._id}>
+                          <th>{i + 1}</th>
+                          <td>
+                              <div className="flex items-center gap-3">
+                                  <div>
+                                      <div className="font-bold">{user?.name}</div>
+                                  </div>
+                              </div>
+                          </td>
+                          <td>{user?.email}</td>
+                          <td>
+                              <div onClick={() => setToggle(!toggle)}>
+                                  <button onClick={() => handleRole(user?._id)} className="btn bg-[#f76042] text-white">
+                                      {user?.Role === 'admin' ? 'Admin' : 'Guest'}
+                                  </button>
+                              </div>
+                          </td>
+                          <td>
+                              <p className="btn btn-ghost btn-xs">{user?.Badge}</p>
+                          </td>
+                      </tr>
+                  ))}
+              </tbody>
+          </table>
+      </div>
+  </div>
     );
 };
 

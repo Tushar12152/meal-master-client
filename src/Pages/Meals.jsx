@@ -68,7 +68,7 @@ const Meals = () => {
   return (
     <Container>
       <div>
-        <div className='flex gap-4 items-center justify-between mt-6'>
+        <div className='flex flex-col lg:flex-row gap-4 items-center justify-between mt-6'>
          <div>
          <input
             type='text'

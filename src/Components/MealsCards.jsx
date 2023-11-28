@@ -9,7 +9,7 @@ const MealsCards = ({meal}) => {
    
     return (
        <Link to={`/detail/${_id}`}>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact lg:w-96 bg-base-100 shadow-xl">
          <img className="w-[90%] h-[300px] mx-auto p-2 rounded-lg" src={imageUrl} alt="" />
         <div className="card-body w-[90%] mx-auto">
           <h2 className="card-title">{Title}</h2>

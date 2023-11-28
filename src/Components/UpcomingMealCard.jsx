@@ -40,9 +40,9 @@ console.log(likeInfo);
 
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card lg:w-96 bg-base-100 shadow-xl">
         <figure>
-          <img className="h-[200px]" src={meal?.imageUrl} alt="Shoes" />
+          <img className="h-[200px]" src={meal?.imageUrl}  />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{meal?.Title}</h2>

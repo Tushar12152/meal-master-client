@@ -34,9 +34,9 @@ const Admin=data?.Role==='admin'
  
 
     return (
-        <div className="flex">
-            {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-[#f76042] text-white">
+        <div className="grid grid-cols-12 h-full">
+            
+            <div className="col-span-5 md:col-span-3  min-h-screen bg-[#f76042] text-white">
                 <ul className="menu p-4">
                     {
                         Admin ? <>
@@ -97,7 +97,7 @@ const Admin=data?.Role==='admin'
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1 p-8">
+            <div className="col-span-7 md:col-span-9  p-4 md:p-8">
                 <Outlet></Outlet>
             </div>
         </div>
