@@ -19,6 +19,7 @@ import AllMeals from "../DashBoard/AllMeals";
 import UpdateMeals from "../DashBoard/UpdateMeals";
 import AllReview from "../DashBoard/User/AllReview";
 import ServeMeal from "../DashBoard/ServeMeal";
+import DashBoardHome from "../DashBoard/DashBoardHome";
 
 
 const Router = createBrowserRouter([
@@ -63,6 +64,12 @@ const Router = createBrowserRouter([
           <DashBoard></DashBoard>
            </PrivateRoute>,
         children:[
+
+           {
+              path:'/dashboard',
+              element:<DashBoardHome></DashBoardHome>
+           },
+
           {
             path:'/dashboard/addmeal',
             element:<AdminRouts>
