@@ -19,6 +19,7 @@ const UserProfile = () => {
   })
 
 
+
   const {Badge,email,image,name}=profile
 
 //   console.log(profile);

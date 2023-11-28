@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types';
 import useAuth from "../../Hooks/useAuth";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 const CheakOutForm = ({data}) => {
     const price=data?.price;
@@ -26,7 +27,19 @@ const CheakOutForm = ({data}) => {
         })
     },[axiosSecure,price])
 
-
+    const userEmail=user?.email
+    
+ 
+    const { data:userInfo=[] } = useQuery({
+     queryKey: ['users'],
+     queryFn: async () =>{
+         const res=await axiosSecure.get(`/users/${userEmail}`)
+ 
+         return res.data
+     }
+     
+   })
+  //  console.log(userInfo._id);
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
@@ -82,14 +95,34 @@ const CheakOutForm = ({data}) => {
 
                 const res=await axiosSecure.post('/payments',payment)
                   if(res.data.insertedId){
-                       swal('success', 'Your payment is Success','success')
+                       swal('success', `Your payment is Success . your transaction id is: ${paymentIntent?.id} `,'success')
                        navigate(-1)
+
+                       axiosSecure.patch(`/users/${userInfo?._id}`,{packageName})
+
+
+
                   }
              }
         }
 
 
     }
+
+
+
+    
+   
+
+
+
+
+    // const handleBadge=()=>{
+    //    console.log('badge update ',packageName);
+    // }
+
+
+
 
     return (
         <form onSubmit={handleSubmit}> 
@@ -110,7 +143,7 @@ const CheakOutForm = ({data}) => {
         }}
       />
     <div className="mt-5">
-    <button className="btn bg-[#f76042] text-white" type="submit" disabled={!stripe || !clientSecret}>
+    <button  className="btn bg-[#f76042] text-white" type="submit" disabled={!stripe || !clientSecret}>
         Pay
       </button>
     

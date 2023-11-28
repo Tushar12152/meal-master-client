@@ -20,8 +20,8 @@ const AdmineProfile = () => {
      }
      
    })
- 
-   const {email,image,name}=profile
+   console.log(profile);
+   const {email,image,name,Badge}=profile
    
    const post=data.filter(item=>item.admin_email===email)
 
@@ -40,7 +40,9 @@ const AdmineProfile = () => {
    
   </div>
               </div>
-               <h1 className="text-xl font-bold mt-2">{email}</h1>
+               <h1 className="text-xl font-bold mt-2">Email:  {email}</h1>
+               <h1 className="text-xl font-bold mt-2">Name:  {name}</h1>
+               <h1 className="text-xl font-bold mt-2">Badge:  {Badge}</h1>
              </div>
 
              <div>
