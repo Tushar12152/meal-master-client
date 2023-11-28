@@ -1,4 +1,4 @@
-import { FaBook, FaEnvelope, FaHandsHelping, FaHome,  FaSearch,  FaUtensils } from "react-icons/fa";
+import { FaBook,  FaHandsHelping, FaHome,  FaUtensils } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { MdManageAccounts, MdPreview, MdUpcoming } from "react-icons/md";
 
@@ -93,16 +93,7 @@ const Admin=data?.Role==='admin'
                             <FaHome></FaHome>
                             Home</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/">
-                            <FaSearch></FaSearch>
-                            Menu</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/">
-                            <FaEnvelope></FaEnvelope>
-                            Contact</NavLink>
-                    </li>
+                   
                 </ul>
             </div>
             {/* dashboard content */}
