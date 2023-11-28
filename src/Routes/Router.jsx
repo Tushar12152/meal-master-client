@@ -37,13 +37,13 @@ const Router = createBrowserRouter([
           {
           path:'/upcoming-meals',
           element:<UpComingMeals></UpComingMeals>,
-          loader:()=>fetch('http://localhost:5000/upcoming-likes')
+          loader:()=>fetch('https://meal-master-server-three.vercel.app/upcoming-likes')
 
           },
           {
             path:`/detail/:id`,
             element:<MealDetails></MealDetails>,
-            loader:({params})=>fetch(`http://localhost:5000/meals/${params.id}`)
+            loader:({params})=>fetch(`https://meal-master-server-three.vercel.app/meals/${params.id}`)
           },
           {
             path:"/meals",
@@ -53,7 +53,7 @@ const Router = createBrowserRouter([
           {
              path:'/payment/:packageName',
              element:<Payment></Payment>,
-             loader:({params})=>fetch(`http://localhost:5000/packages/${params.packageName}`)
+             loader:({params})=>fetch(`https://meal-master-server-three.vercel.app/packages/${params.packageName}`)
           },
           
         ]
@@ -107,7 +107,7 @@ const Router = createBrowserRouter([
           {
             path:'/dashboard/update/:id',
             element:<UpdateReview></UpdateReview>,
-            loader:({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
+            loader:({params})=>fetch(`https://meal-master-server-three.vercel.app/reviews/${params.id}`)
           },
           {
             path:"/dashboard/manageUsers",
@@ -118,12 +118,12 @@ const Router = createBrowserRouter([
           {
             path:'/dashboard/allmeal',
             element:<AdminRouts><AllMeals></AllMeals></AdminRouts>,
-            loader:()=>fetch('http://localhost:5000/reviews')
+            loader:()=>fetch('https://meal-master-server-three.vercel.app/reviews')
           },
           {
             path:'/dashboard/updateMeal/:id',
             element:<UpdateMeals></UpdateMeals>,
-            loader:({params})=>fetch(`http://localhost:5000/meals/${params.id}`)
+            loader:({params})=>fetch(`https://meal-master-server-three.vercel.app/meals/${params.id}`)
           },
           {
             path:'/dashboard/allreview',
@@ -142,14 +142,14 @@ const Router = createBrowserRouter([
             element:<AdminRouts>
                  <UpcomingMealAdmin></UpcomingMealAdmin>
             </AdminRouts>,
-            loader:()=>fetch('http://localhost:5000/upcoming-likes')
+            loader:()=>fetch('https://meal-master-server-three.vercel.app/upcoming-likes')
           },
           {
             path:'/dashboard/adminProfile',
             element:<AdminRouts>
                  <AdmineProfile/>
             </AdminRouts>,
-            loader:()=>fetch('http://localhost:5000/meals/')
+            loader:()=>fetch('https://meal-master-server-three.vercel.app/meals/')
           }
         ]
       }

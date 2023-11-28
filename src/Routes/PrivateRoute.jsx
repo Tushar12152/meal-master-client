@@ -10,6 +10,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
   const [redirectLocation, setRedirectLocation] = useState(null);
+ 
 
   useEffect(() => {
     if (!user && !loading) {
@@ -24,6 +25,8 @@ const PrivateRoute = ({ children }) => {
           setRedirectLocation('/login');
         } else {
           swal("You have to Login First to Access it !!");
+          setRedirectLocation('/')
+
         }
       });
     }
@@ -43,11 +46,9 @@ const PrivateRoute = ({ children }) => {
 
   if (user) {
     return children;
-  } else if (redirectLocation) {
+  } else{
     return <Navigate to={redirectLocation} state={location?.pathname} />;
-  } else {
-    return null; 
-  }
+  } 
 };
 
 PrivateRoute.propTypes = {

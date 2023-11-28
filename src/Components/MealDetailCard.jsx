@@ -17,7 +17,7 @@ import { useQuery } from '@tanstack/react-query';
 const MealDetailCard = ({ meal }) => {
     const [like, setLike] = useState(false);
     const [reAction, setReAction] = useState(0);
-    // const [reviews, setReviews] = useState([]);
+    // const [reviews, setReviews] = useState('');
     const [disable, setDisable] = useState(false);
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
@@ -38,18 +38,28 @@ const MealDetailCard = ({ meal }) => {
         setReAction(specificLike.length); 
     }, [data, Title]);
 
+
+
+  
+
+
+
+
     const handleAddMeal = async () => {
         const mealData = {
             title: Title,
             email: userMail,
             status: 'pending',
             likes:reAction,
+           
         };
 
-        const res = await axiosSecure.post('/requests', mealData);
-        if (res?.data?.insertedId) {
-            toast.success('Your Request is sent');
-        }
+         if(user){
+            const res = await axiosSecure.post('/requests', mealData);
+            if (res?.data?.insertedId) {
+                toast.success('Your Request is sent');
+            }
+         }
     };
 
     const handleLike = () => {
@@ -68,9 +78,11 @@ const MealDetailCard = ({ meal }) => {
         });
     };
 
+  
     const handleReview = e => {
         e.preventDefault();
         const userReview = e.target.review.value;
+        
         // const newReviews = [...reviews, userReview];
         // setReviews(userReview);
 

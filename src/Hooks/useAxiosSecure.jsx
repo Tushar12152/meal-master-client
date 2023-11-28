@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const axiosSecure=axios.create({
-     baseURL:'http://localhost:5000'
+     baseURL:'https://meal-master-server-three.vercel.app'
 })
 
 

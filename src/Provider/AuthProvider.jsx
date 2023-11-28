@@ -42,7 +42,7 @@ const logOut=()=>{
             
                if(currentUser){
                 const userInfo={email:currentUser?.email}
-                axios.post('http://localhost:5000/jwt',userInfo)
+                axios.post('https://meal-master-server-three.vercel.app/jwt',userInfo)
                     .then(res=>{
                           if(res.data.token){
                               localStorage.setItem('access-token',res.data.token)
