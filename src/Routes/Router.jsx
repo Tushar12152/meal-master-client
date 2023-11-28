@@ -20,6 +20,7 @@ import UpdateMeals from "../DashBoard/UpdateMeals";
 import AllReview from "../DashBoard/User/AllReview";
 import ServeMeal from "../DashBoard/ServeMeal";
 import DashBoardHome from "../DashBoard/DashBoardHome";
+import UpComingMeals from "../Pages/UpComingMeals";
 
 
 const Router = createBrowserRouter([
@@ -30,6 +31,12 @@ const Router = createBrowserRouter([
           {
              path:'/',
              element:<Home></Home>
+          },
+          {
+          path:'/upcoming-meals',
+          element:<UpComingMeals></UpComingMeals>,
+          loader:()=>fetch('http://localhost:5000/upcoming-likes')
+
           },
           {
             path:`/detail/:id`,

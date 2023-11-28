@@ -2,9 +2,26 @@ import { NavLink } from "react-router-dom";
 import Container from "../Layout/Container";
 import MenuDropdown from "./MenuDropdown";
 import { IoIosNotifications } from "react-icons/io";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const Nav = () => {
+
+
+  const axiosSecure = useAxiosSecure();
+
+  const { data: upcoming = [] } = useQuery({
+    queryKey: ['upcoming-meal'],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/upcoming-meals`)
+      return res.data
+    }
+  });
+
+
+
+
 
   const nav=<div className="flex gap-6 items-center">
 
@@ -15,6 +32,7 @@ const Nav = () => {
       <div className="flex items-center">
       <NavLink to="/upcoming-meals" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md text-white    " : ""}> Upcoming Meals  </NavLink>
         <IoIosNotifications className="text-xl " />
+        <div className="badge  bg-[#f76042] text-white">+{upcoming.length}</div>
       </div>
 
         <NavLink to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-[#f76042] p-2 rounded-md  text-white" : ""}>Join Us</NavLink>
