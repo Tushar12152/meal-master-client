@@ -6,6 +6,7 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 import Container from '../Layout/Container';
 import MealsCards from '../Components/MealsCards';
+import { Helmet } from 'react-helmet-async';
 
 const Meals = () => {
   const axiosSecure = useAxiosSecure();
@@ -67,6 +68,9 @@ const Meals = () => {
 
   return (
     <Container>
+              <Helmet>
+                  <title>Meal-Master || Meals</title>
+             </Helmet>
       <div>
         <div className='flex flex-col lg:flex-row gap-4 items-center justify-between mt-6'>
          <div>

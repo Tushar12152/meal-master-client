@@ -6,6 +6,7 @@ import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
@@ -111,6 +112,12 @@ const Register = () => {
 
     return (
         <div>
+
+
+<Helmet>
+                  <title>Meal-Master || Register</title>
+             </Helmet>
+
              <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
     <div className="text-center ">

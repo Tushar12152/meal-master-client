@@ -6,6 +6,7 @@ import Container from "../Layout/Container";
 
 import UpcomingMealCard from "../Components/UpcomingMealCard";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const UpComingMeals = () => {
@@ -31,6 +32,13 @@ const upcomingLikes=useLoaderData()
 // console.log(upcoming);
   return (
     <Container>
+
+
+              <Helmet>
+                  <title>Meal-Master || Upcoming-Meals</title>
+             </Helmet>
+
+
       <div className="mt-10">
 
         

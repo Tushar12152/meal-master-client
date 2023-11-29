@@ -4,6 +4,7 @@ import CheakOutForm from "./CheakOutForm";
 import Container from "../../Layout/Container";
 import Title from "../../Shared/Title";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
@@ -14,6 +15,9 @@ const Payment = () => {
     return (
        
             <Container>
+               <Helmet>
+                  <title>Meal-Master || payment</title>
+             </Helmet>
                  <div className="mt-5">
                     <Title heading={'Payment'}></Title>
 

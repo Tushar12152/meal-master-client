@@ -4,6 +4,7 @@ import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [show,setShow]=useState(true)
@@ -39,6 +40,13 @@ const Login = () => {
 
     return (
         <div>
+
+
+<Helmet>
+                  <title>Meal-Master || Login</title>
+             </Helmet>
+
+
              <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
     <div className="text-center ">

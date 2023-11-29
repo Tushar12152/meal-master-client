@@ -13,6 +13,7 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import useAuth from '../Hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 
 const MealDetailCard = ({ meal }) => {
     const [like, setLike] = useState(false);
@@ -112,6 +113,11 @@ const MealDetailCard = ({ meal }) => {
     return (
         <Container>
             <div className="hero min-h-screen mt-10" style={{ backgroundImage: `url(${imageUrl})`,width:'100%' }}>
+               
+            <Helmet>
+                  <title>Meal-Master || Meal-Detail</title>
+             </Helmet>
+               
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">

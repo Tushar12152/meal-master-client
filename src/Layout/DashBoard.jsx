@@ -7,6 +7,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import User from "../DashBoard/User/User";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -35,7 +36,9 @@ const Admin=data?.Role==='admin'
 
     return (
         <div className="grid grid-cols-12 h-full">
-            
+               <Helmet>
+                  <title>Meal-Master || DashBoard</title>
+             </Helmet>
             <div className="col-span-5 md:col-span-3  min-h-screen bg-[#f76042] text-white">
                 <ul className="menu p-4">
                     {
