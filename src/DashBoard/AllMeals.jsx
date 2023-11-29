@@ -127,6 +127,7 @@ const AllMeals = () => {
                     <ul>
                       {reviews.map((review, index) => (
                         <li key={index}>{review}</li>
+                        
                       ))}
                     </ul>
                   </td>

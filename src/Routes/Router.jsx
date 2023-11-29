@@ -54,7 +54,9 @@ const Router = createBrowserRouter([
           },
           {
              path:'/payment/:packageName',
-             element:<Payment></Payment>,
+             element:<PrivateRoute>
+              <Payment></Payment>
+             </PrivateRoute>,
              loader:({params})=>fetch(`https://meal-master-server-three.vercel.app/packages/${params.packageName}`)
           },
           

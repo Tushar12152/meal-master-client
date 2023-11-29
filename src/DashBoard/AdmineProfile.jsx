@@ -20,7 +20,7 @@ const AdmineProfile = () => {
      }
      
    })
-   console.log(profile);
+//    console.log(profile);
    const {email,image,name,Badge}=profile
    
    const post=data.filter(item=>item.admin_email===email)
