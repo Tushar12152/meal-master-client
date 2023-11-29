@@ -19,7 +19,7 @@ const Banner = () => {
                         placeholder="Search..."
                         className="py-2 px-4 text-black mr-2 w-60 border rounded-l focus:outline-none"
                     />
-                    <button className="bg-blue-500 py-2 px-4 text-white rounded-r">
+                    <button className="bg-[#f76042] py-2 px-4 text-white rounded-r">
                         Search
                     </button>
                 </div>
