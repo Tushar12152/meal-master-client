@@ -20,7 +20,7 @@ const RequestedMeal = () => {
 
    const meals= meal.filter(item=>item.email===email)
 
-   console.log(meals);
+  //  console.log(meals);
 
 
 
@@ -115,7 +115,7 @@ const handleDelete=id=>{
                   <td>
                     {meal?.likes}
                   </td>
-                  <td>{meal?.review||'00'}</td>
+                  <td>{meal?.review||'no review'}</td>
                   <th>
                     <p >{meal?.status}</p>
                   </th>

@@ -17,7 +17,7 @@ const MyReview = () => {
 
 
     const { data:detail = [], refetch } = useQuery({
-        queryKey: ['likes'], 
+        queryKey: ['review'], 
         queryFn: async () => {
             const res = await axiosSecure.get(`/reviews`);
             return res.data;

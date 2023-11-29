@@ -18,7 +18,7 @@ import { Helmet } from 'react-helmet-async';
 const MealDetailCard = ({ meal }) => {
     const [like, setLike] = useState(false);
     const [reAction, setReAction] = useState(0);
-    // const [reviews, setReviews] = useState('');
+    const [reviews, setReviews] = useState('');
     const [disable, setDisable] = useState(false);
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
@@ -34,15 +34,31 @@ const MealDetailCard = ({ meal }) => {
         }
     });
 
+   
+
+
+    const { data:review = [],  } = useQuery({
+        queryKey: ['review'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/reviews`);
+            return res.data;
+        }
+    });
+  
+
     useEffect(() => {
         const specificLike = data.filter(item => item.title === Title);
         setReAction(specificLike.length); 
-    }, [data, Title]);
+
+
+        const specificReview= review.filter(item=>item.Title===Title)
+        specificReview.map(item=>setReviews(item?.review))
+        // console.log(specificReview);
+    }, [data, Title,review]);
 
 
 
-  
-
+    // console.log(reviews);
 
 
 
@@ -52,6 +68,7 @@ const MealDetailCard = ({ meal }) => {
             email: userMail,
             status: 'pending',
             likes:reAction,
+            review:reviews
            
         };
 
