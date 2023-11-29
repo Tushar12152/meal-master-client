@@ -111,7 +111,7 @@ const MealDetailCard = ({ meal }) => {
 
     return (
         <Container>
-            <div className="hero min-h-screen mt-10" style={{ backgroundImage: `url(${imageUrl})` }}>
+            <div className="hero min-h-screen mt-10" style={{ backgroundImage: `url(${imageUrl})`,width:'100%' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
@@ -139,7 +139,7 @@ const MealDetailCard = ({ meal }) => {
                                 </button>
                                 <span>{reAction}</span>
                             </div>
-                            <form onSubmit={handleReview} className='flex gap-2 items-center'>
+                            <form onSubmit={handleReview} className='flex flex-col lg:flex-row gap-2 items-center'>
                                 <input className='input border-2 border-[#f76042] text-black' type="text" name="review"  required/>
                                 <input className='btn bg-[#f76042]  text-white ' type="submit" value="Review" />
                             </form>
