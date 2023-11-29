@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Title from "../../Shared/Title";
 import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 const UpcomingMealAdmin = () => {
 
@@ -60,53 +61,36 @@ const handlePublish=async(data)=>{
         <div>
               <Title heading={'Upcoming Meal'}> </Title>
 
-
-              <div className="mt-10 ">
-              <div className="overflow-x-auto">
-  <table className="table">
-    
-    <thead>
-      <tr>
-        <th>
-          #
-        </th>
-        <th>Meal Title</th>
-        <th>Likes</th>
-        <th>Publish</th>
-     
-      </tr>
-    </thead>
-    <tbody>
-      {upcoming.map((item,i)=> <tr key={item._id}>
-        <th>
-          {i+1}
-        </th>
-        <td>
-          <div className="flex items-center gap-3">
-            
-            <div>
-              <div className="font-bold">{item.Title}</div>
-            
-            </div>
-          </div>
-        </td>
-        <td>
-         {like.length}
-        
-        </td>
-        
-        <th>
-          <button onClick={()=>handlePublish(item)} className="btn bg-[#f76042]  text-white ">Publish</button>
-        </th>
-      </tr>)}
-     
-     
-    </tbody>
-   
-    
-  </table>
-</div>
-              </div>
+              <TableContainer
+               component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>#</TableCell>
+            <TableCell align="right">Meal Title</TableCell>
+            <TableCell align="right">Likes</TableCell>
+            <TableCell align="right">Publish</TableCell>
+           
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {upcoming.map((item,i) => (
+            <TableRow
+              key={item._id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {i+1}
+              </TableCell>
+              <TableCell align="right">{item.Title}</TableCell>
+              <TableCell align="right">{like.length}</TableCell>
+              <TableCell align="right"> <button onClick={()=>handlePublish(item)} className="btn bg-[#f76042]  text-white ">Publish</button></TableCell>
+             
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </div>
     );
 };
