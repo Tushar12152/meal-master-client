@@ -8,7 +8,7 @@ import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import useAuth from '../Hooks/useAuth';
@@ -113,6 +113,14 @@ const MealDetailCard = ({ meal }) => {
 
         }
 
+
+        if(!user){
+          
+             return 
+        }
+
+
+
         axiosSecure.post('/reviews',reviewInfo)
         .then(res=>{
              if(res.data.insertedId){
@@ -164,12 +172,12 @@ const MealDetailCard = ({ meal }) => {
                             </div>
                             <form onSubmit={handleReview} className='flex flex-col lg:flex-row gap-2 items-center'>
                                 <input className='input border-2 border-[#f76042] text-black' type="text" name="review"  required/>
-                                <input className='btn bg-[#f76042]  text-white ' type="submit" value="Review" />
+                                <input  className='btn bg-[#f76042]  text-white' type="submit" value="Review" />
                             </form>
                         </div>
                         <div className=' mt-10'>
                             <Link to='/dashboard/requestedMeal'>
-                                <button onClick={handleAddMeal} className="btn bg-[#f76042] text-white">Request Meal</button>
+                                <button  onClick={handleAddMeal} className="btn bg-[#f76042] text-white">Request Meal</button>
                             </Link>
                         </div>
                     </div>
