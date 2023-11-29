@@ -144,7 +144,7 @@ const Router = createBrowserRouter([
             element:<AdminRouts>
                  <UpcomingMealAdmin></UpcomingMealAdmin>
             </AdminRouts>,
-            loader:()=>fetch('https://meal-master-server-three.vercel.app/upcoming-likes')
+            // loader:()=>fetch('https://meal-master-server-three.vercel.app/upcoming-likes')
           },
           {
             path:'/dashboard/adminProfile',
