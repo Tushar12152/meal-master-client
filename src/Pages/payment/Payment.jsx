@@ -21,12 +21,15 @@ const Payment = () => {
                  <div className="mt-5">
                     <Title heading={'Payment'}></Title>
 
-                    <h1 className="text-xl font-semibold py-10">Total : ${data?.price}</h1>
-                <div  className=" mt-10">
+                <div className=" w-[50%] mx-auto mt-10 shadow-2xl bg-gray-200">
+                    
+                <h1 className="text-xl font-semibold p-10">Total : ${data?.price}</h1>
+                <div  className=" mt-10 p-10">
                   <Elements stripe={stripePromise}>
                        <CheakOutForm data={data}></CheakOutForm>
                   </Elements>
-            </div>
+               </div>
+                </div>
             </div>
             </Container>
         

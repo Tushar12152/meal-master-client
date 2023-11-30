@@ -58,7 +58,7 @@ const Login = () => {
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
     <img className='w-[30%] mx-auto mt-5 ' src={'https://i.ibb.co/BKMY06W/images.jpg'} alt="" />
 
-    <p className='text-center mt-5 font-bold text-4xl animate-bounce text-[#f76042]'>Login Here !</p>
+    <p className='text-center mt-5 font-bold text-4xl  text-[#f76042]'>Login Here !</p>
       <form onSubmit={handleLogin} className="card-body">
 
         <div className="form-control">

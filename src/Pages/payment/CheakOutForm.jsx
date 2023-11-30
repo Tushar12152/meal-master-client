@@ -133,7 +133,7 @@ const CheakOutForm = ({data}) => {
               fontSize: '16px',
               color: '#424770',
               '::placeholder': {
-                color: '#aab7c4',
+                color: '#0a0a0a',
               },
             },
             invalid: {
@@ -143,7 +143,7 @@ const CheakOutForm = ({data}) => {
         }}
       />
     <div className="mt-5">
-    <button  className="btn bg-[#f76042] text-white" type="submit" disabled={!stripe || !clientSecret}>
+    <button  className="btn bg-[#f76042] w-full  text-white" type="submit" disabled={!stripe || !clientSecret}>
         Pay
       </button>
     
