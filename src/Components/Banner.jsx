@@ -11,7 +11,7 @@ const Banner = () => {
         >
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center py-20">
-                <h1 className="text-4xl font-bold mb-4 animate-bounce">Discover Delicious Meals</h1>
+                <h1 className="text-xl font-bold mb-4 animate-bounce">Discover Delicious Meals</h1>
                 <p className="text-lg mb-4">Explore a Variety of Mouthwatering Recipes</p>
                 <div className="flex items-center">
                     <input
