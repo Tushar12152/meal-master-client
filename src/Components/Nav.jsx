@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../Layout/Container";
 import MenuDropdown from "./MenuDropdown";
 import { IoIosNotifications } from "react-icons/io";
@@ -51,7 +51,7 @@ const Nav = () => {
         {nav}
       </ul>
     </div>
-       <img className="w-20 " src={'https://i.ibb.co/n8kPV3J/download.png'} alt="" />
+      <Link to='/'> <img className="w-20 " src={'https://i.ibb.co/n8kPV3J/download.png'} alt="" /></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
