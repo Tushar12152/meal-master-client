@@ -21,7 +21,7 @@ const MealDetails = () => {
                     type="anchor"
                     className="custom-awesome-btn"
                     style={{ backgroundColor: "#f76042", color: "white" }}>
-                        see all
+                        See All
                    </AwesomeButton>
                    </Link>
 
