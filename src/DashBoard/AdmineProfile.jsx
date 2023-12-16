@@ -36,12 +36,12 @@ const AdmineProfile = () => {
                       <img src={image} alt="Profile" />
                   </div>
               </div>
-              <h1 className="text-xl font-bold mt-2">Email: {email}</h1>
-              <h1 className="text-xl font-bold mt-2">Name: {name}</h1>
-              <h1 className="text-xl font-bold mt-2">Badge: {Badge}</h1>
+              <h1 className="text-xl font-bold mt-2">Email: <span className="lg:text-xl text-sm">{email}</span></h1>
+              <h1 className="text-xl font-bold mt-2">Name:  <span className="lg:text-xl text-sm">{name}</span></h1>
+              <h1 className="text-xl font-bold mt-2">Badge: <span className="lg:text-xl text-sm">{Badge}</span> </h1>
           </div>
-
-          <div className="md:w-1/2">
+   
+          <div className="lg:w-1/2  w-full mt-5 border-t-2 lg:border-0 border-[#f76042]">
               <h1 className="font-bold text-xl text-center">Posts </h1>
               <h1 className="font-bold text-xl text-gray-500 text-center">{post.length}</h1>
           </div>
